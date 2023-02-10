@@ -31,11 +31,19 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            rb2D.velocity = currentSpeed * Time.fixedDeltaTime * Vector2.left;
+            rb2D.velocity = currentSpeed * Vector2.left;
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            rb2D.velocity = currentSpeed * Time.fixedDeltaTime * Vector2.right;
+            rb2D.velocity = currentSpeed * Vector2.right;
+        }
+        if (rb2D.velocity.x > 0)
+        {
+            rb2D.velocity -= new Vector2(.1f, 0);
+        }
+        else if (rb2D.velocity.x < 0)
+        {
+            rb2D.velocity += new Vector2(.1f, 0);
         }
     }
 }
