@@ -26,6 +26,7 @@ public class Health_Base : MonoBehaviour
     }
     private void Kill()
     {
+        Debug.Log(gameObject.name + " is dead!");
         Destroy(gameObject);
     }
 }

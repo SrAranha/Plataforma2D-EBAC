@@ -528,6 +528,7 @@ GameObject:
   - component: {fileID: 1068020479}
   - component: {fileID: 1068020477}
   - component: {fileID: 1068020476}
+  - component: {fileID: 1068020480}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -656,6 +657,19 @@ MonoBehaviour:
   speedRun: 8
   jumpForce: 12
   jumpsAmount: 2
+--- !u!114 &1068020480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068020474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7a617251587fc046abcc42eca60d78f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 20
 --- !u!1 &1347678992
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,10 +803,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1347678992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7a617251587fc046abcc42eca60d78f, type: 3}
+  m_Script: {fileID: 11500000, guid: 39c76b8825f79154f981b3136e5d7c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 20
+  damage: 5
 --- !u!1 &1368398747
 GameObject:
   m_ObjectHideFlags: 3
