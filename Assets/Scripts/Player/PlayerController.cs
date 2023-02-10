@@ -37,11 +37,11 @@ public class PlayerController : MonoBehaviour
         {
             rb2D.velocity = currentSpeed * Vector2.right;
         }
-        if (rb2D.velocity.x > 0)
+        if (rb2D.velocity.x > .1f)
         {
             rb2D.velocity -= new Vector2(.1f, 0);
         }
-        else if (rb2D.velocity.x < 0)
+        else if (rb2D.velocity.x < -.1f)
         {
             rb2D.velocity += new Vector2(.1f, 0);
         }
