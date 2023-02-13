@@ -15,7 +15,7 @@ public class Health_Base : MonoBehaviour
     {
         if (currentHealth <= damage)
         {
-            currentHealth -= currentHealth;
+            currentHealth -= currentHealth; // This prevents the player from having negative health.
         }
         else currentHealth -= damage;
 
