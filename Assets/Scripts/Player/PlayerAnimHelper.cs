@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class PlayerAnimHelper : MonoBehaviour
 {
-    public PlayerController player;
+    private PlayerController player;
+
+    private void OnValidate()
+    {
+        player = GetComponentInParent<PlayerController>();
+    }
     public void KillPlayer()
     {
         Destroy(player.gameObject);
