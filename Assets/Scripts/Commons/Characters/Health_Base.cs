@@ -4,7 +4,6 @@ public class Health_Base : MonoBehaviour
 {
     [Header("Health_Base")]
     public int startingHealth;
-    public float timeToDestroy = 10f;
 
     private int currentHealth;
     private Animator animator;
@@ -35,6 +34,9 @@ public class Health_Base : MonoBehaviour
     {
         animator.SetTrigger("Death");
         Debug.Log(gameObject.name + " is dead!");
-        Destroy(gameObject, timeToDestroy);
+    }
+    public void DestroyCharacter()
+    {
+        Destroy(gameObject);
     }
 }
