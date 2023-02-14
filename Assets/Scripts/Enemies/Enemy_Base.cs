@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class Enemy_Base : MonoBehaviour
+public class Enemy_Base : Health_Base
 {
+    [Header("Enemy_Base")]
     public int damage;
 
     private void OnCollisionEnter2D(Collision2D collision)

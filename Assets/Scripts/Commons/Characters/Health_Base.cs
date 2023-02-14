@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Health_Base : MonoBehaviour
 {
+    [Header("Health_Base")]
     public int startingHealth;
 
     private int currentHealth;
