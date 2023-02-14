@@ -4,9 +4,15 @@ public class Health_Base : MonoBehaviour
 {
     [Header("Health_Base")]
     public int startingHealth;
+    public float timeToDestroy = 10f;
 
     private int currentHealth;
+    private Animator animator;
 
+    private void OnValidate()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
     private void Awake()
     {
         currentHealth = startingHealth;
@@ -27,7 +33,8 @@ public class Health_Base : MonoBehaviour
     }
     private void Kill()
     {
+        animator.SetTrigger("Death");
         Debug.Log(gameObject.name + " is dead!");
-        Destroy(gameObject);
+        Destroy(gameObject, timeToDestroy);
     }
 }

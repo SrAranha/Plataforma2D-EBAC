@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public int jumpsAmount;
     [Header("Animation")]
     public string runParam;
+    public string jumpParam;
+    public string groundParam;
 
     private bool jump;
     private Rigidbody2D rb2D;
@@ -19,7 +21,7 @@ public class PlayerController : MonoBehaviour
     //private bool isGrounded;
     private float currentSpeed;
 
-    private void Awake()
+    private void OnValidate()
     {
         animator = GetComponentInChildren<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
@@ -73,6 +75,7 @@ public class PlayerController : MonoBehaviour
     }
     private void HandleJump()
     {
+        animator.SetFloat("JumpHeight", rb2D.velocity.y);
         if (jump)
         {
             rb2D.velocity = jumpForce * Vector2.up;
@@ -85,6 +88,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             jumpCount = 0;
+            animator.SetTrigger(groundParam);
             //isGrounded = true;
         }
     }
