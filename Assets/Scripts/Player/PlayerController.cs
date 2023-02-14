@@ -9,11 +9,12 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     [Min(1)]
     public int jumpsAmount;
+
     [Header("Animation")]
     public string runParam;
     public string jumpParam;
     public string groundParam;
-
+    
     private bool jump;
     private Rigidbody2D rb2D;
     private int jumpCount = 0;
