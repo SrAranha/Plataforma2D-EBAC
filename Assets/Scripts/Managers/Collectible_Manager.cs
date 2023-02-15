@@ -3,23 +3,30 @@ using UnityEngine;
 
 public class Collectible_Manager : Singleton<Collectible_Manager>
 {
-    public TMP_Text text;
-    public int coins;
+    public SO_Collectibles collectibles;
+    public TMP_Text textCoins;
+    public TMP_Text textCandies;
 
     private void Start()
     {
-        ResetCoins();
+        ResetCollectibles();
     }
     private void Update()
     {
-        text.text = "x " + coins.ToString();
+        textCoins.text = "x " + collectibles.coins.ToString();
+        textCandies.text = "x " + collectibles.candies.ToString();
     }
-    private void ResetCoins()
+    private void ResetCollectibles()
     {
-        coins = 0;
+        collectibles.coins = 0;
+        collectibles.candies = 0;
     }
     public void AddCoins(int value)
     {
-        coins += value;
+        collectibles.coins += value;
+    }
+    public void AddCandies(int value)
+    {
+        collectibles.candies += value;
     }
 }
