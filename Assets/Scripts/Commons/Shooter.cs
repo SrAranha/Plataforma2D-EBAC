@@ -7,7 +7,13 @@ public class Shooter : MonoBehaviour
     public Transform shootPoint;
     public float shootCooldown;
 
+    private PlayerController player;
     private Coroutine _currentCoroutine;
+    private void Awake()
+    {
+        player = GetComponent<PlayerController>();
+        shootPoint = player.currentPlayer.transform.Find("SPR_Astronaut/Cannon/ShootPoint");
+    }
     // Update is called once per frame
     void Update()
     {

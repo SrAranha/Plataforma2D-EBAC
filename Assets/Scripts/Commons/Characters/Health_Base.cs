@@ -8,12 +8,9 @@ public class Health_Base : MonoBehaviour
     private int currentHealth;
     private Animator animator;
 
-    private void OnValidate()
-    {
-        animator = GetComponentInChildren<Animator>();
-    }
     private void Awake()
     {
+        animator = GetComponentInChildren<Animator>();
         currentHealth = startingHealth;
     }
 

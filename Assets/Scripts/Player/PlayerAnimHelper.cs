@@ -4,7 +4,7 @@ public class PlayerAnimHelper : MonoBehaviour
 {
     private PlayerController player;
 
-    private void OnValidate()
+    private void Awake()
     {
         player = GetComponentInParent<PlayerController>();
     }
