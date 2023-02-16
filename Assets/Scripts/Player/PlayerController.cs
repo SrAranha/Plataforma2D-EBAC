@@ -5,8 +5,8 @@ public class PlayerController : MonoBehaviour
     public SO_PlayerSetup playerSetup;
     public Animator currentPlayer;
     public ParticleSystem footParticles;
+    public ParticleSystem jumpParticles;
 
-    private Vector3 defaultFootParticlesRotation = new(0,-90,0);
     private Rigidbody2D rb2D;
     private float currentSpeed;
     private bool jump;
@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
         {
             rb2D.velocity = playerSetup.jumpForce * Vector2.up;
             jumpCount++;
+            jumpParticles.Play();
             jump = false;
         }
     }
