@@ -4,7 +4,9 @@ public class PlayerController : MonoBehaviour
 {
     public SO_PlayerSetup playerSetup;
     public Animator currentPlayer;
-    
+    public ParticleSystem footParticles;
+
+    private Vector3 defaultFootParticlesRotation = new(0,-90,0);
     private Rigidbody2D rb2D;
     private float currentSpeed;
     private bool jump;
@@ -45,22 +47,21 @@ public class PlayerController : MonoBehaviour
     }
     private void HandleMovement()
     {
+        bool _running = false;
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             rb2D.velocity = new Vector2(-currentSpeed, rb2D.velocity.y);
-            currentPlayer.SetBool(playerSetup.runParam, true);
+            _running = true;
             rb2D.transform.localScale = new Vector2(-1, 1);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             rb2D.velocity = new Vector2(currentSpeed, rb2D.velocity.y);
-            currentPlayer.SetBool(playerSetup.runParam, true);
+            _running = true;
             rb2D.transform.localScale = new Vector2(1, 1);
         }
-        else 
-        {
-            currentPlayer.SetBool(playerSetup.runParam, false);
-        }
+        footParticles.gameObject.SetActive(_running);
+        currentPlayer.SetBool(playerSetup.runParam, _running);
 
         // Applying manual friction
         if (rb2D.velocity.x > playerSetup.manualFriction)
