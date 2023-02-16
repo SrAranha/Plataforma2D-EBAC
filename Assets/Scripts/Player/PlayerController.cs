@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
     }
     private void HandleJump()
     {
-        currentPlayer.SetFloat("JumpHeight", rb2D.velocity.y);
+        currentPlayer.SetFloat(playerSetup.jumpParam, rb2D.velocity.y);
         if (jump)
         {
             rb2D.velocity = playerSetup.jumpForce * Vector2.up;
