@@ -5,11 +5,11 @@ public class PlayerController : MonoBehaviour
     public SO_PlayerSetup playerSetup;
     public Animator currentPlayer;
     
-    private bool jump;
     private Rigidbody2D rb2D;
-    private int jumpCount = 0;
-    //private bool isGrounded;
     private float currentSpeed;
+    private bool jump;
+    private int jumpCount;
+    private float distFromGround;
 
     private void OnValidate()
     {
@@ -17,10 +17,16 @@ public class PlayerController : MonoBehaviour
     }
     private void Awake()
     {
+        ResetJumpAmount();
         currentPlayer = Instantiate(playerSetup.animator, transform);
+        distFromGround = GetComponent<Collider2D>().bounds.extents.y;
     }
     private void FixedUpdate()
     {
+        if (OnGround())
+        {
+            ResetJumpAmount();
+        }
         HandleJump();
         HandleMovement();
     }
@@ -76,20 +82,19 @@ public class PlayerController : MonoBehaviour
             jump = false;
         }
     }
+    private void ResetJumpAmount()
+    {
+        jumpCount = 1;
+    }
+    private bool OnGround()
+    {
+        return Physics2D.Raycast(transform.position, Vector2.down, distFromGround * .3f);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") && OnGround())
         {
-            jumpCount = 0;
             currentPlayer.SetTrigger(playerSetup.groundParam);
-            //isGrounded = true;
-        }
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            //isGrounded = false;
         }
     }
 }
