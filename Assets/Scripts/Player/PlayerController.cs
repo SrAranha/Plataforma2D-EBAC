@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -19,9 +20,13 @@ public class PlayerController : MonoBehaviour
     }
     private void Awake()
     {
-        ResetJumpAmount();
         currentPlayer = Instantiate(playerSetup.animator, transform);
+    }
+    private void Start()
+    {
+        ResetJumpAmount();
         distFromGround = GetComponent<Collider2D>().bounds.extents.y;
+        currentPlayer.SetBool(playerSetup.jumpingParam, false);
     }
     private void FixedUpdate()
     {
@@ -78,6 +83,7 @@ public class PlayerController : MonoBehaviour
         currentPlayer.SetFloat(playerSetup.jumpParam, rb2D.velocity.y);
         if (jump)
         {
+            currentPlayer.SetBool(playerSetup.jumpingParam, true);
             rb2D.velocity = playerSetup.jumpForce * Vector2.up;
             jumpCount++;
             jumpParticles.Play();
@@ -97,6 +103,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground") && OnGround())
         {
             currentPlayer.SetTrigger(playerSetup.groundParam);
+            currentPlayer.SetBool(playerSetup.jumpingParam, false);
         }
     }
 }

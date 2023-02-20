@@ -17,7 +17,8 @@ MonoBehaviour:
   manualFriction: 0.15
   jumpForce: 18
   jumpsAmount: 2
+  animator: {fileID: 6413013834153556191, guid: bcb16035b6d323745af20ea4e91886a3, type: 3}
   runParam: Run
   jumpParam: JumpHeight
   groundParam: OnGround
-  animator: {fileID: 6413013834153556191, guid: bcb16035b6d323745af20ea4e91886a3, type: 3}
+  jumpingParam: IsJumping

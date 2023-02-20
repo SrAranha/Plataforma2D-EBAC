@@ -12,8 +12,9 @@ public class SO_PlayerSetup : ScriptableObject
     public int jumpsAmount;
 
     [Header("Animation")]
+    public Animator animator;
     public string runParam;
     public string jumpParam;
     public string groundParam;
-    public Animator animator;
+    public string jumpingParam;
 }
