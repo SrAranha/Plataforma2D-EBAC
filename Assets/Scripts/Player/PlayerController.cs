@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
         {
             jump = true;
         }
+        OnGroundAnimation();
     }
     private void HandleMovement()
     {
@@ -98,11 +99,12 @@ public class PlayerController : MonoBehaviour
     {
         return Physics2D.Raycast(transform.position, Vector2.down, distFromGround * .3f);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnGroundAnimation()
     {
-        if (collision.gameObject.CompareTag("Ground") && OnGround())
+        currentPlayer.SetBool(playerSetup.groundParam, OnGround());
+        
+        if (OnGround())
         {
-            currentPlayer.SetTrigger(playerSetup.groundParam);
             currentPlayer.SetBool(playerSetup.jumpingParam, false);
         }
     }
