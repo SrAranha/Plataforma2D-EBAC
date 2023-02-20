@@ -4,6 +4,7 @@ public class Collectible_Base : MonoBehaviour
 {
     [Header("Collectible_Base")]
     public float timeToDestroy = 1f;
+    private AudioSource audioSource;
     private SpriteRenderer sprite;
     private ParticleSystem particle;
     private new Collider2D collider;
@@ -11,6 +12,7 @@ public class Collectible_Base : MonoBehaviour
     private void OnValidate()
     {
         collider = GetComponent<Collider2D>();
+        audioSource = GetComponent<AudioSource>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         particle = GetComponentInChildren<ParticleSystem>();
     }
@@ -25,6 +27,7 @@ public class Collectible_Base : MonoBehaviour
     {
         DisableSprite();
         particle.Play();
+        audioSource.Play();
         Destroy(gameObject, timeToDestroy);
     }
     private void DisableSprite()

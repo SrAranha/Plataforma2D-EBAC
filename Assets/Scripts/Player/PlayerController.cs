@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     public SO_PlayerSetup playerSetup;
     public Animator currentPlayer;
+    [Header("VFX")]
     public ParticleSystem footParticles;
     public ParticleSystem jumpParticles;
 
@@ -12,10 +13,12 @@ public class PlayerController : MonoBehaviour
     private float currentSpeed;
     private bool jump;
     private int jumpCount;
+    private AudioSource jumpSound;
     private float distFromGround;
 
     private void OnValidate()
     {
+        jumpSound = GetComponent<AudioSource>();
         rb2D = GetComponent<Rigidbody2D>();
     }
     private void Awake()
@@ -84,20 +87,21 @@ public class PlayerController : MonoBehaviour
         currentPlayer.SetFloat(playerSetup.jumpParam, rb2D.velocity.y);
         if (jump)
         {
-            currentPlayer.SetBool(playerSetup.jumpingParam, true);
             rb2D.velocity = playerSetup.jumpForce * Vector2.up;
             jumpCount++;
             jumpParticles.Play();
+            jumpSound.Play();
+            currentPlayer.SetBool(playerSetup.jumpingParam, true);
             jump = false;
         }
     }
     private void ResetJumpAmount()
     {
-        jumpCount = 1;
+        jumpCount = 0;
     }
     private bool OnGround()
     {
-        return Physics2D.Raycast(transform.position, Vector2.down, distFromGround * .3f);
+        return Physics2D.Raycast(transform.position, Vector2.down, distFromGround * .1f);
     }
     private void OnGroundAnimation()
     {
