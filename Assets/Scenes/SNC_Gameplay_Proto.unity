@@ -1264,6 +1264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSetup: {fileID: 11400000, guid: 65cdb7e0a08a5b943929323b25a7ac11, type: 2}
+  keybinds: {fileID: 11400000, guid: 4c378e95758e63248adfde58d2e6f1f6, type: 2}
   currentPlayer: {fileID: 0}
   footParticles: {fileID: 244874538}
   jumpParticles: {fileID: 1442879881}

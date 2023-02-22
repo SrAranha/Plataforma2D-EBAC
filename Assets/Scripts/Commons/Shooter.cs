@@ -18,11 +18,11 @@ public class Shooter : MonoBehaviour
     void Update()
     {
         // TODO: Desse modo, ao segurar o botão, têm o cooldown, mas se ficar apertando o botão, ele ignora o cooldown entre os tiros.
-        if (Input.GetKeyDown(KeyCode.Keypad0))
+        if (Input.GetKeyDown(player.keybinds.shoot))
         {
             _currentCoroutine = StartCoroutine(CoroutineShoot());
         }    
-        if (Input.GetKeyUp(KeyCode.Keypad0))
+        if (Input.GetKeyUp(player.keybinds.shoot))
         {
             if (_currentCoroutine != null)
             {

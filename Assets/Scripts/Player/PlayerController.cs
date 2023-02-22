@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public SO_PlayerSetup playerSetup;
+    public SO_Keybinds keybinds;
     public Animator currentPlayer;
     [Header("VFX")]
     public ParticleSystem footParticles;
@@ -42,13 +43,13 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(keybinds.sprint))
         {
             currentSpeed = playerSetup.speedRun;
         }
         else currentSpeed = playerSetup.speed;
 
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < playerSetup.jumpsAmount)
+        if (Input.GetKeyDown(keybinds.jump) && jumpCount < playerSetup.jumpsAmount)
         {
             jump = true;
         }
@@ -57,13 +58,13 @@ public class PlayerController : MonoBehaviour
     private void HandleMovement()
     {
         bool _running = false;
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(keybinds.moveLeft))
         {
             rb2D.velocity = new Vector2(-currentSpeed, rb2D.velocity.y);
             _running = true;
             rb2D.transform.localScale = new Vector2(-1, 1);
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(keybinds.moveRight))
         {
             rb2D.velocity = new Vector2(currentSpeed, rb2D.velocity.y);
             _running = true;
