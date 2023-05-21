@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1137280887584686741}
   - component: {fileID: 7020928844223853844}
   - component: {fileID: 3381257024379465169}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left_Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 4291896749423777614}
   - component: {fileID: 8622257899716607877}
   - component: {fileID: 8666709941090095564}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 3392895579989370325}
   - component: {fileID: 3294411287784764205}
   - component: {fileID: 2674345021046439106}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,8 +329,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8073972946613542793}
   - component: {fileID: 2403329696302037006}
-  - component: {fileID: 6271538022439666505}
-  m_Layer: 0
+  - component: {fileID: 6389645762891867507}
+  - component: {fileID: 8796705183314178876}
+  - component: {fileID: 8879827344052623532}
+  m_Layer: 3
   m_Name: PFB_Enemy_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,17 +383,67 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!210 &6271538022439666505
-SortingGroup:
+--- !u!61 &6389645762891867507
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3090786764695304946}
   m_Enabled: 1
-  m_SortingLayerID: -1992252133
-  m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 3.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.87, y: 6.25}
+  m_EdgeRadius: 0
+--- !u!50 &8796705183314178876
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090786764695304946}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 3
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &8879827344052623532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090786764695304946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c76b8825f79154f981b3136e5d7c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 20
+  damage: 5
 --- !u!1 &3840710139504160895
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +453,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4031394395824172508}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: L_Eyebrown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +486,7 @@ GameObject:
   - component: {fileID: 4016561117173749974}
   - component: {fileID: 3096084783782573798}
   - component: {fileID: 2044946813036613227}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Right_Eyebrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -538,7 +590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3224396904485084758}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: R_Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +621,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8392671563515255418}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: R_Eyebrown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2824275231970500835}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,8 +666,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5605850546978557102}
-  m_LocalRotation: {x: 0, y: 0, z: 0.68580073, w: 0.72778946}
-  m_LocalPosition: {x: -0.05983019, y: 0.0896482, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -632,7 +684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9072440100847685840}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mouth_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6366582078689648173}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -701,7 +753,7 @@ GameObject:
   - component: {fileID: 840275733461418246}
   - component: {fileID: 2944600070154927280}
   - component: {fileID: 3984384284713621975}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left_Eyebrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +859,7 @@ GameObject:
   - component: {fileID: 4811297239595550362}
   - component: {fileID: 7634903016602951953}
   - component: {fileID: 1087528554744173198}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Right_Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -913,7 +965,7 @@ GameObject:
   - component: {fileID: 8305536209930936756}
   - component: {fileID: 4402658883949824882}
   - component: {fileID: 2066475497352735422}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Right_Eye_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1019,7 +1071,7 @@ GameObject:
   - component: {fileID: 6213309796172798523}
   - component: {fileID: 4058282757918593861}
   - component: {fileID: 7304554112179627170}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left_Eye_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1123,7 +1175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9196861913604587219}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: L_Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
