@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class Collectible_Candy : Collectible_Base
 {
     public int value;

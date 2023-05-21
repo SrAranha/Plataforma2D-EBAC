@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEngine;
 
 public class Collectible_Manager : Singleton<Collectible_Manager>
 {
